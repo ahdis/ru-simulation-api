@@ -1,0 +1,19 @@
+{
+  "name": "Hello Gazelle Simulator",
+  "version": "1.0.0",
+  "instanceId": "111345",
+  "replicaId": "001",
+  "description": "A simple simulator for testing simulation API",
+  "providedInterfaces": [
+    {
+      "interfaceName": "Simulation Service API",
+      "interfaceVersion": "1.0.0",
+      "bindings": [
+        {
+          "@type": "REST",
+          "serviceUrl": "https://pprod-ehealthsuisse.ihe-europe.net/hello-gazelle-simulator"
+        }
+      ]
+    }
+  ]
+}
