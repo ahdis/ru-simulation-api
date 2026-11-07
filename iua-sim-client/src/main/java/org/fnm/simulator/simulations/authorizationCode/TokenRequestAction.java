@@ -42,8 +42,6 @@ public class TokenRequestAction {
 
     private static final Logger LOG = Logger.getLogger(TokenRequestAction.class);
 
-    public static final String REDIRECT_URI = "http://localhost:9000/callback";
-
     private final AuthorizationCodeConfig config;
 
     // the java net http client
@@ -72,7 +70,8 @@ public class TokenRequestAction {
         bodyElements.put("grant_type", GrantType.authorizationCode);
         bodyElements.put("code", config.authorizationCode);
         bodyElements.put("client_id", config.clientId);
-        bodyElements.put("redirect_uri", REDIRECT_URI);
+        // RFC 6749 4.1.3: must be identical to the redirect_uri of the authorization request
+        bodyElements.put("redirect_uri", config.redirectUri);
         bodyElements.put("client_assertion_type", "urn:ietf:params:oauth:client-assertion-type:jwt-bearer");
 
         // add the OIDC ID token as client assertion
